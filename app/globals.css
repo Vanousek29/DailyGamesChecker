@@ -1,0 +1,249 @@
+/* Page-level styles for the Daily hry rozcestník, built on the Organic tokens. */
+
+:root {
+  --font-heading: var(--font-caprasimo), system-ui, sans-serif;
+  --font-body: var(--font-figtree), system-ui, sans-serif;
+}
+
+body {
+  margin: 0;
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-body);
+}
+
+a {
+  color: var(--color-accent-700);
+}
+
+a:hover {
+  color: var(--color-accent-800);
+}
+
+input[type='checkbox'] {
+  accent-color: var(--color-accent-2);
+}
+
+/* — layout — */
+.page {
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 56px 28px 80px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.page-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.page-title-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.date-label {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--color-accent-700);
+  text-transform: capitalize;
+}
+
+.page-title {
+  margin: 0;
+  font-family: var(--font-heading);
+  font-weight: 400;
+  font-size: clamp(40px, 6vw, 64px);
+  line-height: 1;
+}
+
+/* — counter — */
+.counter {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 10px 22px 10px 10px;
+  background: var(--color-surface);
+  border-radius: 999px;
+}
+
+.counter-badge {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: var(--color-accent-2);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-heading);
+  font-size: 22px;
+}
+
+.counter-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.counter-label {
+  font-weight: 700;
+  font-size: 16px;
+}
+
+.counter-sub {
+  font-size: 13px;
+  color: var(--color-neutral-700);
+}
+
+/* — grid of games — */
+.game-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 22px;
+}
+
+.game-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 24px;
+  background: var(--color-surface);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, opacity 0.25s ease;
+}
+
+.game-card.is-done {
+  opacity: 0.55;
+}
+
+.game-card.is-raised {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-lg);
+}
+
+.game-card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.game-icon {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32px;
+  overflow: hidden;
+}
+
+.game-card.is-done .game-icon {
+  filter: grayscale(1);
+}
+
+.game-icon img {
+  width: 44px;
+  height: 44px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.game-check {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: var(--color-accent-2);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.game-text {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.game-name {
+  margin: 0;
+  font-family: var(--font-heading);
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 1.1;
+}
+
+.game-card.is-done .game-name {
+  text-decoration: line-through;
+}
+
+.game-desc {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.4;
+  color: var(--color-neutral-700);
+  text-wrap: pretty;
+}
+
+.game-card-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: auto;
+  padding-top: 4px;
+}
+
+.game-toggle {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  user-select: none;
+}
+
+.game-toggle input {
+  width: 18px;
+  height: 18px;
+  margin: 0;
+  cursor: pointer;
+}
+
+.game-play {
+  border-radius: 999px;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(6px);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.game-play.is-visible {
+  opacity: 1;
+  pointer-events: auto;
+  transform: none;
+}
+
+.page-footer {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.page-footer .btn {
+  border-radius: 999px;
+}
