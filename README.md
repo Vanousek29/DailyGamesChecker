@@ -12,6 +12,19 @@ každou půlnoc samo vyresetuje. Postaveno na Next.js (App Router) a nasazeno na
 - Vzhled stojí na design systému Organic — tokeny a komponentové třídy jsou
   v [`app/design-system.css`](app/design-system.css), stránkové styly v [`app/globals.css`](app/globals.css).
 
+## Přidání na plochu telefonu
+
+Appka má web manifest ([`app/manifest.ts`](app/manifest.ts)) a ikony, takže jde
+nainstalovat jako PWA a spouští se bez prohlížečového rámu (`display: standalone`):
+
+- **Android (Chrome):** nabídka ⋮ → *Přidat na plochu* / *Instalovat aplikaci*.
+- **iOS (Safari):** tlačítko Sdílet → *Přidat na plochu*.
+
+Ikona je zelená fajfka na tónu `--color-accent-2`, stejná jako označení dohrané hry;
+leží v `public/icon-192.png`, `public/icon-512.png`, `app/icon.png` (favicon)
+a `app/apple-icon.png` (iOS). Servisní worker potřeba není — instalaci zvládne
+samotný manifest.
+
 ## Vývoj
 
 ```bash
